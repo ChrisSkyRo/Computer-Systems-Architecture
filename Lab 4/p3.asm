@@ -1,7 +1,7 @@
-; 31. Se dau cuvintele A, B si C. Sa se formeze cuvantul D ca suma a numerelor reprezentate de:
-; biţii de pe poziţiile 1-5 ai lui A
-; biţii de pe poziţiile 6-10 ai lui B
-; biţii de pe poziţiile 11-15 ai lui C
+; 31. Given the words A, B and C, form the double word D as a sum of numbers represented by:
+; bits 1-5 of A
+; bits 6-10 of B
+; bits 11-15 of C
 
 bits 32
 global start
@@ -18,18 +18,18 @@ segment data use32 class=data
 segment code use32 class=code
     start:
         mov AX, [A] ; AX = A = 6A12h
-        and AX, 0000000000111110b ; izolam bitii 1-5
-        shr AX, 1 ; facem numarul format de bitii 1-5
-        mov BX, AX ; punem primul numar in BX = 9h
+        and AX, 0000000000111110b ; separates bits 1-5
+        shr AX, 1 ; forms the first number with bits 1-5 of A
+        mov BX, AX ; puts the first number in BX = 9h
         mov AX, [B] ; AX = B = 3495h
-        and AX, 0000011111000000b ; izolam bitii 6-10
-        shr AX, 6 ; facem numarul format de bitii 6-10
-        add BX, AX ; adunam al doilea numar la BX = 1Bh
+        and AX, 0000011111000000b ; separates bits 6-10
+        shr AX, 6 ; forms the second number with bits 6-10 of B
+        add BX, AX ; adds the second number to the first BX = 1Bh
         mov AX, [C] ; AX = C = 2756h
-        and AX, 1111100000000000b ; izolam bitii 11-15
-        shr AX, 11 ; facem numarul format de bitii 11-15
-        add BX, AX ; adunam al treilea numar la BX = 1Fh
-        mov [D], BX ; punem rezultatul in D = 1Fh
+        and AX, 1111100000000000b ; separates bits 11-15
+        shr AX, 11 ; forms the third number with bits 11-15 of C
+        add BX, AX ; adds the third number to the sum BX = 1Fh
+        mov [D], BX ; places the result in D = 1Fh
         push dword 0
         call [exit]
         

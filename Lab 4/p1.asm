@@ -1,4 +1,4 @@
-; 10. Sa se inlocuiasca bitii 0-3 ai octetului B cu bitii 8-11 ai cuvantului A.
+; 10. Replace bits 0-3 of the byte B with the bits 8-11 of the word A.
 
 bits 32
 global start
